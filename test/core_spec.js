@@ -106,47 +106,47 @@ describe('application logic' ,()=>{
 		it('creates a tally for voted entry' ,()=>{
 
 			const state = Map({
-				vote : Map({
 					pair :List.of('Abcd','good')
-				}),
-				entries : List()
 			});
 
 			const nextState = vote(state, 'Abcd');
-			expect(nextState).to.equal(Map({
-				vote: Map({
-					pair : List.of('Abcd','good'),
-					tally : Map({
-						'Abcd' : 1
+
+			expect(nextState).to.equal(
+				Map({
+				pair : List.of('Abcd','good'),
+				tally : Map({
+					'Abcd' : 1
 					})
-				}),
-				entries : List()
-			}))
+				})
+			);
+
 		})//End of it
+
+
 
 		it('adds to the tally for the voted enty' , () => {
 
-			const state = Map({
-				vote: Map({
+			const state = 
+				Map({
 					pair : List.of('Abcd','good'),
 					tally : Map({
 						'Abcd' : 3,
 						'good' : 5
 					})
-				}),
-				entries : List()
-			})
+				})
+	
 			const nextState = vote(state,'Abcd');
-			expect(nextState).to.equal(Map({
-				vote: Map({
+
+			expect(nextState).to.equal(
+				 Map({
 					pair : List.of('Abcd', 'good'),
 					tally : Map({
 						'Abcd' :4,
 						'good' : 5
+						})
 					})
-				}),
-				entries : List()
-			}));
+				
+				);
 
 		});//End of it
 
